@@ -133,6 +133,7 @@ footer { background: #111; color: #888; padding: 50px 0; font-size: 14px; margin
     .nav-menu { display: none; } /* Для простоты скрываем на мобильном в примере */
     .header-wrap { flex-direction: column; gap: 10px; }
 }
+/* --- СТИЛИ ДЛЯ ИКОНОК ПРЕИМУЩЕСТВ --- */
 .advantage-icon {
     font-size: 50px;        /* Размер иконки */
     color: var(--primary);  /* Цвет (голубой/стальной) */
