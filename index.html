@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GlassInterior — Стекло в интерьере</title>
+    <title>GlassInterior — Главная</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -29,60 +29,148 @@
     </header>
 
     <main style="margin-top: 0;">
+        
         <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/glass-hero.jpg');">
             <div class="container hero-content">
                 <h1>Стеклянные конструкции<br><b>премиум класса</b></h1>
-                <p class="hero-subtitle">Душевые, перегородки и ограждения по индивидуальным размерам</p>
+                <p class="hero-subtitle">Эстетика и безопасность в каждой детали</p>
                 
                 <div class="hero-features">
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div>Закаленное<br>стекло</div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon"><i class="fas fa-check"></i></div>
-                        <div>Замер<br>бесплатно</div>
-                    </div>
+                    <div class="feature-item"><div class="feature-icon"><i class="fas fa-check"></i></div><div>Закаленное<br>стекло</div></div>
+                    <div class="feature-item"><div class="feature-icon"><i class="fas fa-check"></i></div><div>Монтаж<br>за 1 день</div></div>
                 </div>
 
-                <a href="catalog.html" class="btn">Смотреть каталог</a>
+                <a href="#categories" class="btn">Выбрать решение</a>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-title"><h2>Наши стандарты</h2></div>
+                <div class="grid">
+                    <div class="card card-body">
+                        <i class="fas fa-shield-alt advantage-icon"></i>
+                        <h3>Безопасность</h3>
+                        <p>Используем закаленное стекло 8-12 мм. В 7 раз прочнее обычного.</p>
+                    </div>
+                    <div class="card card-body">
+                        <i class="fas fa-broom advantage-icon"></i>
+                        <h3>Чистый монтаж</h3>
+                        <p>Работаем с пылесосами, сохраняя чистоту вашего ремонта.</p>
+                    </div>
+                    <div class="card card-body">
+                        <i class="fas fa-gem advantage-icon"></i>
+                        <h3>Фурнитура</h3>
+                        <p>Нержавеющая сталь и латунь. Гарантия от коррозии 5 лет.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="categories" class="section" style="background-color: #f9f9f9;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Что мы производим</h2>
+                    <p>Популярные направления для дома и офиса</p>
+                </div>
+                
+                <div class="grid">
+                    <a href="catalog.html" class="category-card">
+                        <img src="img/shower.jpg" alt="Душевые" class="category-bg">
+                        <div class="category-overlay"></div>
+                        <h3 class="category-title">Душевые</h3>
+                    </a>
+                    
+                    <a href="catalog.html" class="category-card">
+                        <img src="img/office.jpg" alt="Перегородки" class="category-bg">
+                        <div class="category-overlay"></div>
+                        <h3 class="category-title">Перегородки</h3>
+                    </a>
+
+                    <a href="catalog.html" class="category-card">
+                        <img src="img/railing.jpg" alt="Ограждения" class="category-bg">
+                        <div class="category-overlay"></div>
+                        <h3 class="category-title">Ограждения</h3>
+                    </a>
+                </div>
             </div>
         </section>
 
         <section class="section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Наши стандарты</h2>
+                    <h2>Лидеры продаж</h2>
                 </div>
+                
                 <div class="grid">
-                    
-                    <div class="card card-body">
-                        <i class="fas fa-shield-alt advantage-icon"></i>
-                        <h3>Безопасность</h3>
-                        <p>Используем только закаленное стекло (8-12 мм) и триплекс. Оно прочнее обычного в 7 раз и безопасно при разбивании.</p>
+                    <div class="card product-card">
+                        <span class="badge">ХИТ</span>
+                        <div class="card-img"><img src="img/shower.jpg" alt="Душевая Лофт"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Душевая "Loft Black"</h3>
+                            <p class="card-price">24 500 руб.</p>
+                            <a href="contacts.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Заказать</a>
+                        </div>
                     </div>
 
-                    <div class="card card-body">
-                        <i class="fas fa-broom advantage-icon"></i>
-                        <h3>Чистый монтаж</h3>
-                        <p>Работаем с промышленными пылесосами. Аккуратно сверлим плитку, не повреждая чистовую отделку.</p>
+                    <div class="card product-card">
+                        <span class="badge new">NEW</span>
+                        <div class="card-img"><img src="img/mirror.jpg" alt="Зеркало"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Зеркало с подсветкой</h3>
+                            <p class="card-price">12 000 руб.</p>
+                            <a href="contacts.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Заказать</a>
+                        </div>
                     </div>
 
-                    <div class="card card-body">
-                        <i class="fas fa-gem advantage-icon"></i>
-                        <h3>Фурнитура</h3>
-                        <p>Используем надежные крепления: нержавеющая сталь, черный мат, золото или хром. Гарантия от коррозии.</p>
+                    <div class="card product-card">
+                        <div class="card-img"><img src="img/railing.jpg" alt="Перила"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Перила на стойках</h3>
+                            <p class="card-price">от 8 500 руб/п.м.</p>
+                            <a href="contacts.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Заказать</a>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </section>
+
+        <section class="section" style="background-color: #f9f9f9;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Галерея вдохновения</h2>
+                    <p>Следите за нашими работами в Instagram</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="img/shower.jpg" alt="Фото 1"></div>
+                    <div class="gallery-item"><img src="img/office.jpg" alt="Фото 2"></div>
+                    <div class="gallery-item"><img src="img/railing.jpg" alt="Фото 3"></div>
+                    <div class="gallery-item"><img src="img/mirror.jpg" alt="Фото 4"></div>
+                    <div class="gallery-item"><img src="img/office.jpg" alt="Фото 5"></div>
+                    <div class="gallery-item"><img src="img/shower.jpg" alt="Фото 6"></div>
+                    <div class="gallery-item"><img src="img/railing.jpg" alt="Фото 7"></div>
+                    <div class="gallery-item"><img src="img/glass-hero.jpg" alt="Фото 8"></div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="portfolio.html" style="color: var(--primary); font-weight: 700; border-bottom: 1px dashed;">Смотреть всё портфолио</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <div class="container footer-row">
-            <p>© 2024 GlassInterior. Все права защищены.</p>
-            <p>Дизайн интерьеров и остекление</p>
+            <div>
+                <a href="#" class="logo" style="color: white; font-size: 20px;">Glass<span>Interior</span></a>
+                <p style="margin-top: 10px; opacity: 0.6;">© 2024 Все права защищены</p>
+            </div>
+            <div style="text-align: right;">
+                <p>Москва, Пресненская наб., 12</p>
+                <a href="tel:+79990000000" style="color: white; font-weight: bold;">+7 (999) 000-00-00</a>
+            </div>
         </div>
     </footer>
 
