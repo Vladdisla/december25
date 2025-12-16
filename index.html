@@ -30,7 +30,7 @@
 
     <main>
         
-   <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/glass-hero.jpg'); height: 100vh; display: flex; align-items: center; background-size: cover; background-position: center;">
+        <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/glass-hero.jpg'); height: 100vh; display: flex; align-items: center; background-size: cover; background-position: center;">
             <div class="container hero-content">
                 <h1>Стеклянные конструкции<br><b>премиум класса</b></h1>
                 <p class="hero-subtitle">Изготовление и монтаж душевых, перегородок и зеркал</p>
@@ -166,274 +166,281 @@
                 </div>
             </div>
         </section>
-<section id="quiz-calculator" style="position: relative; padding: 80px 20px; background-color: #F3F5F9; font-family: 'Manrope', sans-serif; overflow: hidden;">
 
-    <div style="position: absolute; top: 20%; left: 20%; width: 300px; height: 300px; background: #BFDBFE; border-radius: 50%; filter: blur(80px); opacity: 0.4; z-index: 1;"></div>
-    <div style="position: absolute; bottom: 20%; right: 20%; width: 300px; height: 300px; background: #E9D5FF; border-radius: 50%; filter: blur(80px); opacity: 0.4; z-index: 1;"></div>
+        <section id="quiz-calculator" style="position: relative; padding: 80px 20px; background-color: #F3F5F9; font-family: 'Manrope', sans-serif; overflow: hidden;">
 
-    <div class="container" style="position: relative; z-index: 10; max-width: 900px; margin: 0 auto;">
-        
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="font-size: 36px; font-weight: 800; color: #1F2937; margin-bottom: 10px;">Онлайн расчет стоимости</h2>
-            <p style="color: #9CA3AF; font-size: 16px;">Пройдите тест и получите смету за 15 минут</p>
-        </div>
+            <div style="position: absolute; top: 20%; left: 20%; width: 300px; height: 300px; background: #BFDBFE; border-radius: 50%; filter: blur(80px); opacity: 0.4; z-index: 1;"></div>
+            <div style="position: absolute; bottom: 20%; right: 20%; width: 300px; height: 300px; background: #E9D5FF; border-radius: 50%; filter: blur(80px); opacity: 0.4; z-index: 1;"></div>
 
-        <div id="quiz-main-card" style="background: white; border-radius: 30px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); padding: 40px; min-height: 500px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
-            
-            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #F3F4F6; padding-bottom: 20px; margin-bottom: 30px;">
-                <div style="margin-bottom: 10px;">
-                    <h3 style="font-size: 20px; font-weight: 700; color: #1F2937; margin: 0;">Параметры заказа</h3>
-                    <p style="font-size: 12px; color: #9CA3AF; margin-top: 5px;">Вопрос <span id="q-current">1</span> из <span id="q-total">7</span></p>
-                </div>
-                <div style="width: 100%; max-width: 300px;">
-                    <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #2563EB; margin-bottom: 8px;">
-                        <span>Точность</span>
-                        <span id="q-progress-text">15%</span>
-                    </div>
-                    <div style="background: #F3F4F6; height: 10px; border-radius: 99px; overflow: hidden;">
-                        <div id="q-progress-bar" style="background: #2563EB; height: 100%; width: 15%; transition: width 0.5s ease;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="q-content-wrapper" style="flex-grow: 1; position: relative;">
-                <div id="q-content" style="transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); opacity: 1; transform: translateX(0);">
-                    </div>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px;">
-                <button id="q-btn-prev" onclick="quizPrev()" style="background: none; border: none; color: #9CA3AF; font-weight: 600; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; display: flex; align-items: center;">
-                    <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Назад
-                </button>
-                <button id="q-btn-next" onclick="quizNext()" style="background: #818CF8; color: white; border: none; padding: 14px 40px; border-radius: 12px; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2); transition: 0.3s; display: flex; align-items: center;">
-                    Далее <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
-                </button>
-            </div>
-
-        </div>
-
-        <div id="q-thank-you" style="display: none; background: white; border-radius: 30px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); padding: 60px; text-align: center;">
-            <div style="width: 80px; height: 80px; background: #ECFDF5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                <i class="fas fa-check" style="font-size: 32px; color: #10B981;"></i>
-            </div>
-            <h2 style="font-size: 30px; font-weight: 800; color: #1F2937; margin-bottom: 15px;">Заявка принята!</h2>
-            <p style="color: #6B7280; font-size: 16px; margin-bottom: 30px; line-height: 1.5;">
-                Инженер получил параметры:<br>
-                <strong id="q-result-summary" style="color: #1F2937;"></strong>.<br>
-                Мы свяжемся с вами в течение 15 минут.
-            </p>
-            <button onclick="location.reload()" style="background: transparent; border: 2px solid #818CF8; color: #818CF8; padding: 10px 30px; border-radius: 10px; font-weight: 700; cursor: pointer;">
-                На главную
-            </button>
-        </div>
-
-    </div>
-
-    <style>
-        .q-option { border: 1px solid #E5E7EB; border-radius: 16px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.2s ease; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 160px; }
-        .q-option:hover { border-color: #93C5FD; transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-        .q-option.active { border-color: #2563EB; background-color: #EFF6FF; box-shadow: 0 0 0 2px #2563EB; }
-        .q-option i { font-size: 32px; margin-bottom: 12px; color: #3B82F6; }
-        .q-option span { font-weight: 700; color: #374151; font-size: 15px; line-height: 1.3; }
-        
-        /* СЕТКА: На десктопе 4 в ряд (minmax уменьшен до 140px) */
-        .q-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
-            gap: 15px; 
-        }
-
-        .q-range-container { padding: 20px 0; }
-        .q-range-wrap { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 16px; padding: 25px; margin-bottom: 20px; }
-        .q-range-header { display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700; color: #374151; }
-        .q-range-val { background: #fff; padding: 2px 10px; border-radius: 6px; border: 1px solid #E5E7EB; color: #2563EB; }
-        input[type=range].q-range { width: 100%; -webkit-appearance: none; background: transparent; cursor: pointer; }
-        input[type=range].q-range::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #2563EB; margin-top: -8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        input[type=range].q-range::-webkit-slider-runnable-track { width: 100%; height: 4px; background: #E5E7EB; border-radius: 2px; }
-        .q-input-group { max-width: 400px; margin: 0 auto; }
-        .q-tabs { display: flex; background: #F3F4F6; padding: 4px; border-radius: 12px; margin-bottom: 20px; }
-        .q-tab { flex: 1; text-align: center; padding: 10px; font-size: 14px; font-weight: 700; color: #6B7280; cursor: pointer; border-radius: 8px; transition: 0.2s; }
-        .q-tab.active { background: white; color: #2563EB; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .q-input { width: 100%; padding: 16px; border: 2px solid #E5E7EB; border-radius: 12px; font-size: 18px; outline: none; transition: 0.2s; box-sizing: border-box; }
-        .q-input:focus { border-color: #2563EB; background: #fff; }
-        #q-btn-next:hover { background-color: #6366F1 !important; }
-        #q-btn-next:disabled { background-color: #C7D2FE !important; cursor: not-allowed; }
-        
-        /* Мобильная адаптация: 2 колонки */
-        @media (max-width: 768px) { 
-            .q-option { height: 140px; padding: 15px; } 
-            .q-grid { grid-template-columns: 1fr 1fr; } 
-        }
-    </style>
-
-    <script>
-        const quizData = [
-            { id: 'location', question: 'Куда планируется установка?', type: 'cards', options: [ { value: 'office', label: 'Офис / БЦ', icon: 'fa-building' }, { value: 'retail', label: 'ТЦ / Магазин', icon: 'fa-store' }, { value: 'home', label: 'Квартира / Дом', icon: 'fa-home' } ] },
-            { id: 'type_office', condition: (a) => a.location === 'office' || a.location === 'retail', question: 'Основная задача?', type: 'cards', options: [ { value: 'meeting', label: 'Переговорная', icon: 'fa-volume-mute' }, { value: 'zoning', label: 'Зонирование', icon: 'fa-eye' }, { value: 'entry', label: 'Входная группа', icon: 'fa-door-open' } ] },
-            { id: 'type_home', condition: (a) => a.location === 'home', question: 'Тип конструкции?', type: 'cards', options: [ { value: 'shower', label: 'Душевая', icon: 'fa-shower' }, { value: 'partition', label: 'Перегородка', icon: 'fa-th-large' }, { value: 'railing', label: 'Ограждение', icon: 'fa-stairs' } ] },
-            { id: 'glass_type', question: 'Выберите тип стекла', type: 'cards', options: [ 
-                { value: 'clear', label: 'Прозрачное', icon: 'fa-window-maximize' }, 
-                { value: 'matte', label: 'Матовое', icon: 'fa-cloud' }, 
-                { value: 'tinted', label: 'Тонированное', customSvg: `<svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px"><rect width="48" height="48" rx="12" fill="url(#p_g)"/><rect x="23" y="10" width="2" height="28" fill="white" fill-opacity="0.6"/><defs><linearGradient id="p_g" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#BFDBFE"/><stop offset="1" stop-color="#C084FC"/></linearGradient></defs></svg>` }, 
-                { value: 'smart', label: 'Smart Стекло', icon: 'fa-magic', color: '#8B5CF6' } 
-            ] },
-            { id: 'hardware', question: 'Цвет фурнитуры', type: 'cards', options: [ { value: 'chrome', label: 'Хром / Сталь', icon: 'fa-circle', color: '#D1D5DB' }, { value: 'black', label: 'Черный (Loft)', icon: 'fa-circle', color: '#1F2937' }, { value: 'gold', label: 'Золото', icon: 'fa-circle', color: '#F59E0B' } ] },
-            { id: 'sizes', question: 'Примерные размеры (мм)', type: 'range', inputs: [ { id: 'width', label: 'Ширина', min: 500, max: 10000, step: 100, def: 2000 }, { id: 'height', label: 'Высота', min: 1000, max: 4000, step: 50, def: 2500 } ] },
-            { id: 'timeline', question: 'Когда нужен монтаж?', type: 'cards', options: [ { value: 'asap', label: 'Срочно', icon: 'fa-bolt', color: '#F59E0B' }, { value: 'repair', label: 'Идет ремонт', icon: 'fa-tools' }, { value: 'planning', label: 'Планирую', icon: 'fa-calendar' } ] },
-            { id: 'contacts', question: 'Куда отправить расчет?', type: 'form', options: ['WhatsApp', 'Telegram', 'Email'] }
-        ];
-
-        let qStep = 0;
-        let qActiveSteps = [];
-        let qAnswers = {};
-
-        function quizInit() {
-            quizCalcSteps();
-            quizRender(false); // false = без анимации при первой загрузке
-        }
-
-        function quizCalcSteps() {
-            qActiveSteps = quizData.filter(step => !step.condition || step.condition(qAnswers));
-        }
-
-        function quizRender(animate = true) {
-            const step = qActiveSteps[qStep];
-            const content = document.getElementById('q-content');
-            
-            // Если нужна анимация, сначала скрываем контент
-            if (animate) {
-                content.style.opacity = '0';
-                content.style.transform = 'translateX(-30px)'; // Уезжает влево
-            }
-
-            setTimeout(() => {
-                let html = `<h3 style="font-size: 24px; font-weight: 800; color: #1F2937; margin-bottom: 25px;">${step.question}</h3>`;
-
-                if (step.type === 'cards') {
-                    html += `<div class="q-grid">`;
-                    step.options.forEach(opt => {
-                        const isActive = qAnswers[step.id] === opt.value ? 'active' : '';
-                        let iconHtml;
-                        if (opt.customSvg) {
-                            iconHtml = opt.customSvg;
-                        } else {
-                            const color = opt.color || '#3B82F6';
-                            iconHtml = `<i class="fas ${opt.icon}" style="color: ${color}"></i>`;
-                        }
-                        html += `<div class="q-option ${isActive}" onclick="quizSelect('${step.id}', '${opt.value}')">${iconHtml}<span>${opt.label}</span></div>`;
-                    });
-                    html += `</div>`;
-                } else if (step.type === 'range') {
-                    html += `<div class="q-range-container">`;
-                    step.inputs.forEach(inp => {
-                        const val = qAnswers[inp.id] || inp.def;
-                        if(!qAnswers[inp.id]) qAnswers[inp.id] = inp.def;
-                        html += `<div class="q-range-wrap"><div class="q-range-header"><label>${inp.label}</label><div class="q-range-val">${val} мм</div></div><input type="range" class="q-range" min="${inp.min}" max="${inp.max}" step="${inp.step}" value="${val}" oninput="quizRange('${inp.id}', this.value)"></div>`;
-                    });
-                    html += `</div>`;
-                } else if (step.type === 'form') {
-                    if(!qAnswers.messenger) qAnswers.messenger = 'WhatsApp';
-                    const isEmail = qAnswers.messenger === 'Email';
-                    html += `<div class="q-input-group"><div class="q-tabs">`;
-                    step.options.forEach(m => {
-                        const activeClass = qAnswers.messenger === m ? 'active' : '';
-                        html += `<div class="q-tab ${activeClass}" onclick="quizInput('messenger', '${m}'); quizRender(false);">${m}</div>`;
-                    });
-                    html += `</div><input type="${isEmail ? 'email' : 'tel'}" class="q-input" placeholder="${isEmail ? 'example@mail.ru' : '+7 (999) 000-00-00'}" value="${qAnswers.phone || ''}" oninput="quizInput('phone', this.value)"><div style="text-align:center; font-size:12px; color:#9CA3AF; margin-top:10px;">Официальный ящик: info@steklo-interior.ru</div></div>`;
-                }
+            <div class="container" style="position: relative; z-index: 10; max-width: 900px; margin: 0 auto;">
                 
-                content.innerHTML = html;
-                quizUpdateUI();
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 36px; font-weight: 800; color: #1F2937; margin-bottom: 10px;">Онлайн расчет стоимости</h2>
+                    <p style="color: #9CA3AF; font-size: 16px;">Пройдите тест и получите смету за 15 минут</p>
+                </div>
 
-                // Показываем новый контент (плывет справа)
-                if (animate) {
-                    content.style.transition = 'none'; // Отключаем плавность для мгновенного переноса вправо
-                    content.style.transform = 'translateX(30px)'; // Ставим справа
+                <div id="quiz-main-card" style="background: white; border-radius: 30px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); padding: 40px; min-height: 600px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
                     
-                    setTimeout(() => {
-                        content.style.transition = 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)'; // Включаем плавность
-                        content.style.opacity = '1';
-                        content.style.transform = 'translateX(0)'; // Возвращаем в центр
-                    }, 50);
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #F3F4F6; padding-bottom: 20px; margin-bottom: 30px;">
+                        <div style="margin-bottom: 10px;">
+                            <h3 style="font-size: 20px; font-weight: 700; color: #1F2937; margin: 0;">Параметры заказа</h3>
+                            <p style="font-size: 12px; color: #9CA3AF; margin-top: 5px;">Вопрос <span id="q-current">1</span> из <span id="q-total">7</span></p>
+                        </div>
+                        <div style="width: 100%; max-width: 300px;">
+                            <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #2563EB; margin-bottom: 8px;">
+                                <span>Точность</span>
+                                <span id="q-progress-text">15%</span>
+                            </div>
+                            <div style="background: #F3F4F6; height: 10px; border-radius: 99px; overflow: hidden;">
+                                <div id="q-progress-bar" style="background: #2563EB; height: 100%; width: 15%; transition: width 0.5s ease;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="q-content-wrapper" style="flex-grow: 1; position: relative;">
+                        <div id="q-content" style="transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); opacity: 1; transform: translateX(0);">
+                            </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px;">
+                        <button id="q-btn-prev" onclick="quizPrev()" style="background: none; border: none; color: #9CA3AF; font-weight: 600; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s; display: flex; align-items: center;">
+                            <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Назад
+                        </button>
+                        <button id="q-btn-next" onclick="quizNext()" style="background: #818CF8; color: white; border: none; padding: 14px 40px; border-radius: 12px; font-weight: 700; font-size: 16px; cursor: pointer; box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2); transition: 0.3s; display: flex; align-items: center;">
+                            Далее <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+                <div id="q-thank-you" style="display: none; background: white; border-radius: 30px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); padding: 60px; text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #ECFDF5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <i class="fas fa-check" style="font-size: 32px; color: #10B981;"></i>
+                    </div>
+                    <h2 style="font-size: 30px; font-weight: 800; color: #1F2937; margin-bottom: 15px;">Заявка принята!</h2>
+                    <p style="color: #6B7280; font-size: 16px; margin-bottom: 30px; line-height: 1.5;">
+                        Инженер получил параметры:<br>
+                        <strong id="q-result-summary" style="color: #1F2937;"></strong>.<br>
+                        Мы свяжемся с вами в течение 15 минут.
+                    </p>
+                    <button onclick="location.reload()" style="background: transparent; border: 2px solid #818CF8; color: #818CF8; padding: 10px 30px; border-radius: 10px; font-weight: 700; cursor: pointer;">
+                        На главную
+                    </button>
+                </div>
+
+            </div>
+
+            <style>
+                .q-option { border: 1px solid #E5E7EB; border-radius: 16px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.2s ease; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 160px; }
+                .q-option:hover { border-color: #93C5FD; transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+                .q-option.active { border-color: #2563EB; background-color: #EFF6FF; box-shadow: 0 0 0 2px #2563EB; }
+                .q-option i { font-size: 32px; margin-bottom: 12px; color: #3B82F6; }
+                .q-option span { font-weight: 700; color: #374151; font-size: 15px; line-height: 1.3; }
+                
+                .q-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
+
+                /* Стиль для ползунков (как на скриншоте) */
+                .q-range-container { padding: 10px 0; }
+                .q-range-wrap { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 16px; padding: 25px; margin-bottom: 20px; }
+                .q-range-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+                .q-range-header label { font-weight: 700; color: #374151; font-size: 16px; }
+                
+                /* Белая плашка с цифрой */
+                .q-range-val { 
+                    background: #fff; 
+                    padding: 8px 16px; 
+                    border-radius: 10px; 
+                    border: 1px solid #E5E7EB; 
+                    color: #2563EB; 
+                    font-weight: 700; 
+                    min-width: 90px;
+                    text-align: center;
                 }
-            }, animate ? 300 : 0); // Задержка рендера для анимации исчезновения
-        }
 
-        function quizSelect(id, val) {
-            qAnswers[id] = val;
-            if(id === 'location') quizCalcSteps();
-            // Обновляем UI (подсветка), но НЕ перерендериваем весь контент, чтобы не сбить анимацию
-            const options = document.querySelectorAll('.q-option');
-            options.forEach(opt => opt.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            quizUpdateUI(); 
-        }
+                input[type=range].q-range { width: 100%; -webkit-appearance: none; background: transparent; cursor: pointer; }
+                input[type=range].q-range::-webkit-slider-thumb { -webkit-appearance: none; height: 20px; width: 20px; border-radius: 50%; background: #2563EB; margin-top: -8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 2px solid white; box-shadow: 0 0 0 1px #2563EB; }
+                input[type=range].q-range::-webkit-slider-runnable-track { width: 100%; height: 4px; background: #E5E7EB; border-radius: 2px; }
+                
+                .q-input-group { max-width: 400px; margin: 0 auto; }
+                .q-tabs { display: flex; background: #F3F4F6; padding: 4px; border-radius: 12px; margin-bottom: 20px; }
+                .q-tab { flex: 1; text-align: center; padding: 10px; font-size: 14px; font-weight: 700; color: #6B7280; cursor: pointer; border-radius: 8px; transition: 0.2s; }
+                .q-tab.active { background: white; color: #2563EB; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+                .q-input { width: 100%; padding: 16px; border: 2px solid #E5E7EB; border-radius: 12px; font-size: 18px; outline: none; transition: 0.2s; box-sizing: border-box; }
+                .q-input:focus { border-color: #2563EB; background: #fff; }
+                #q-btn-next:hover { background-color: #6366F1 !important; }
+                #q-btn-next:disabled { background-color: #C7D2FE !important; cursor: not-allowed; }
+                
+                @media (max-width: 768px) { 
+                    .q-option { height: 140px; padding: 15px; } 
+                    .q-grid { grid-template-columns: 1fr 1fr; } 
+                }
+            </style>
 
-        function quizRange(id, val) {
-            qAnswers[id] = val;
-            event.target.previousElementSibling.querySelector('.q-range-val').innerText = val + ' мм';
-        }
+            <script>
+                const quizData = [
+                    { id: 'location', question: 'Куда планируется установка?', type: 'cards', options: [ { value: 'office', label: 'Офис / БЦ', icon: 'fa-building' }, { value: 'retail', label: 'ТЦ / Магазин', icon: 'fa-store' }, { value: 'home', label: 'Квартира / Дом', icon: 'fa-home' } ] },
+                    { id: 'type_office', condition: (a) => a.location === 'office' || a.location === 'retail', question: 'Основная задача?', type: 'cards', options: [ { value: 'meeting', label: 'Переговорная (Звук)', icon: 'fa-volume-mute' }, { value: 'zoning', label: 'Зонирование (Визуал)', icon: 'fa-eye' }, { value: 'entry', label: 'Входная группа', icon: 'fa-door-open' } ] },
+                    { id: 'type_home', condition: (a) => a.location === 'home', question: 'Тип конструкции?', type: 'cards', options: [ { value: 'shower', label: 'Душевая', icon: 'fa-shower' }, { value: 'partition', label: 'Перегородка', icon: 'fa-th-large' }, { value: 'railing', label: 'Ограждение', icon: 'fa-stairs' } ] },
+                    { id: 'glass_type', question: 'Выберите тип стекла', type: 'cards', options: [ 
+                        { value: 'clear', label: 'Прозрачное', icon: 'fa-window-maximize' }, 
+                        { value: 'matte', label: 'Матовое', icon: 'fa-cloud' }, 
+                        { value: 'tinted', label: 'Тонированное', customSvg: `<svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px"><rect width="48" height="48" rx="12" fill="url(#p_g)"/><rect x="23" y="10" width="2" height="28" fill="white" fill-opacity="0.6"/><defs><linearGradient id="p_g" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#BFDBFE"/><stop offset="1" stop-color="#C084FC"/></linearGradient></defs></svg>` }, 
+                        { value: 'smart', label: 'Smart Стекло', icon: 'fa-magic', color: '#8B5CF6' } 
+                    ] },
+                    { id: 'hardware', question: 'Цвет фурнитуры', type: 'cards', options: [ { value: 'chrome', label: 'Хром / Сталь', icon: 'fa-circle', color: '#D1D5DB' }, { value: 'black', label: 'Черный (Loft)', icon: 'fa-circle', color: '#1F2937' }, { value: 'gold', label: 'Золото', icon: 'fa-circle', color: '#F59E0B' } ] },
+                    { id: 'sizes', question: 'Примерные размеры (мм)', type: 'range', inputs: [ { id: 'width', label: 'Ширина', min: 500, max: 10000, step: 100, def: 2000 }, { id: 'height', label: 'Высота', min: 1000, max: 4000, step: 50, def: 2500 } ] },
+                    { id: 'timeline', question: 'Когда нужен монтаж?', type: 'cards', options: [ { value: 'asap', label: 'Срочно', icon: 'fa-bolt', color: '#F59E0B' }, { value: 'repair', label: 'Идет ремонт', icon: 'fa-tools' }, { value: 'planning', label: 'Планирую', icon: 'fa-calendar' } ] },
+                    { id: 'contacts', question: 'Куда отправить расчет?', type: 'form', options: ['WhatsApp', 'Telegram', 'Email'] }
+                ];
 
-        function quizInput(key, val) {
-            qAnswers[key] = val;
-            quizUpdateUI();
-        }
+                let qStep = 0;
+                let qActiveSteps = [];
+                let qAnswers = {};
 
-        function quizNext() {
-            if(qStep < qActiveSteps.length - 1) {
-                qStep++;
-                quizRender(true); // Включаем анимацию
-            } else {
-                quizFinish();
-            }
-        }
+                function quizInit() {
+                    quizCalcSteps();
+                    quizRender(false);
+                }
 
-        function quizPrev() {
-            if(qStep > 0) {
-                qStep--;
-                quizRender(true); // Включаем анимацию
-            }
-        }
+                function quizCalcSteps() {
+                    qActiveSteps = quizData.filter(step => !step.condition || step.condition(qAnswers));
+                }
 
-        function quizUpdateUI() {
-            const current = qStep + 1;
-            const total = qActiveSteps.length;
-            const percent = Math.round((current / total) * 100);
+                function quizRender(animate = true) {
+                    const step = qActiveSteps[qStep];
+                    const content = document.getElementById('q-content');
+                    
+                    if (animate) {
+                        content.style.opacity = '0';
+                        content.style.transform = 'translateX(-30px)';
+                    }
 
-            document.getElementById('q-current').innerText = current;
-            document.getElementById('q-total').innerText = total;
-            document.getElementById('q-progress-text').innerText = percent + '%';
-            document.getElementById('q-progress-bar').style.width = percent + '%';
+                    setTimeout(() => {
+                        let html = `<h3 style="font-size: 24px; font-weight: 800; color: #1F2937; margin-bottom: 25px;">${step.question}</h3>`;
 
-            const prevBtn = document.getElementById('q-btn-prev');
-            prevBtn.style.opacity = qStep === 0 ? '0' : '1';
-            prevBtn.style.pointerEvents = qStep === 0 ? 'none' : 'auto';
+                        if (step.type === 'cards') {
+                            html += `<div class="q-grid">`;
+                            step.options.forEach(opt => {
+                                const isActive = qAnswers[step.id] === opt.value ? 'active' : '';
+                                let iconHtml;
+                                if (opt.customSvg) {
+                                    iconHtml = opt.customSvg;
+                                } else {
+                                    const color = opt.color || '#3B82F6';
+                                    iconHtml = `<i class="fas ${opt.icon}" style="color: ${color}"></i>`;
+                                }
+                                html += `<div class="q-option ${isActive}" onclick="quizSelect('${step.id}', '${opt.value}')">${iconHtml}<span>${opt.label}</span></div>`;
+                            });
+                            html += `</div>`;
+                        } else if (step.type === 'range') {
+                            html += `<div class="q-range-container">`;
+                            step.inputs.forEach(inp => {
+                                const val = qAnswers[inp.id] || inp.def;
+                                if(!qAnswers[inp.id]) qAnswers[inp.id] = inp.def;
+                                html += `<div class="q-range-wrap"><div class="q-range-header"><label>${inp.label}</label><div class="q-range-val">${val} мм</div></div><input type="range" class="q-range" min="${inp.min}" max="${inp.max}" step="${inp.step}" value="${val}" oninput="quizRange('${inp.id}', this.value)"></div>`;
+                            });
+                            html += `</div>`;
+                        } else if (step.type === 'form') {
+                            if(!qAnswers.messenger) qAnswers.messenger = 'WhatsApp';
+                            const isEmail = qAnswers.messenger === 'Email';
+                            html += `<div class="q-input-group"><div class="q-tabs">`;
+                            step.options.forEach(m => {
+                                const activeClass = qAnswers.messenger === m ? 'active' : '';
+                                html += `<div class="q-tab ${activeClass}" onclick="quizInput('messenger', '${m}'); quizRender(false);">${m}</div>`;
+                            });
+                            html += `</div><input type="${isEmail ? 'email' : 'tel'}" class="q-input" placeholder="${isEmail ? 'example@mail.ru' : '+7 (999) 000-00-00'}" value="${qAnswers.phone || ''}" oninput="quizInput('phone', this.value)"><div style="text-align:center; font-size:12px; color:#9CA3AF; margin-top:10px;">Официальный ящик: info@steklo-interior.ru</div></div>`;
+                        }
+                        
+                        content.innerHTML = html;
+                        quizUpdateUI();
 
-            const nextBtn = document.getElementById('q-btn-next');
-            const step = qActiveSteps[qStep];
-            let isValid = true;
-            
-            if(step.type === 'cards' && !qAnswers[step.id]) isValid = false;
-            if(step.type === 'form' && (!qAnswers.phone || qAnswers.phone.length < 5)) isValid = false;
+                        if (animate) {
+                            content.style.transition = 'none';
+                            content.style.transform = 'translateX(30px)';
+                            
+                            setTimeout(() => {
+                                content.style.transition = 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)';
+                                content.style.opacity = '1';
+                                content.style.transform = 'translateX(0)';
+                            }, 50);
+                        }
+                    }, animate ? 300 : 0);
+                }
 
-            nextBtn.disabled = !isValid;
-            nextBtn.style.opacity = isValid ? '1' : '0.6';
-            nextBtn.innerHTML = (qStep === total - 1) ? 'Получить расчет <i class="fas fa-paper-plane" style="margin-left:10px"></i>' : 'Далее <i class="fas fa-arrow-right" style="margin-left:10px"></i>';
-        }
+                function quizSelect(id, val) {
+                    qAnswers[id] = val;
+                    if(id === 'location') quizCalcSteps();
+                    const options = document.querySelectorAll('.q-option');
+                    options.forEach(opt => opt.classList.remove('active'));
+                    event.currentTarget.classList.add('active');
+                    quizUpdateUI(); 
+                }
 
-        function quizFinish() {
-            let type = 'Конструкция';
-            if (qAnswers.glass_type === 'clear') type = 'Прозрачное стекло';
-            if (qAnswers.glass_type === 'tinted') type = 'Тонированное стекло';
-            
-            document.getElementById('q-result-summary').innerText = type;
-            document.getElementById('quiz-main-card').style.display = 'none';
-            document.getElementById('q-thank-you').style.display = 'block';
-        }
+                function quizRange(id, val) {
+                    qAnswers[id] = val;
+                    event.target.previousElementSibling.querySelector('.q-range-val').innerText = val + ' мм';
+                }
 
-        document.addEventListener('DOMContentLoaded', quizInit);
-    </script>
-</section>       
+                function quizInput(key, val) {
+                    qAnswers[key] = val;
+                    quizUpdateUI();
+                }
+
+                function quizNext() {
+                    if(qStep < qActiveSteps.length - 1) {
+                        qStep++;
+                        quizRender(true);
+                    } else {
+                        quizFinish();
+                    }
+                }
+
+                function quizPrev() {
+                    if(qStep > 0) {
+                        qStep--;
+                        quizRender(true);
+                    }
+                }
+
+                function quizUpdateUI() {
+                    const current = qStep + 1;
+                    const total = qActiveSteps.length;
+                    const percent = Math.round((current / total) * 100);
+
+                    document.getElementById('q-current').innerText = current;
+                    document.getElementById('q-total').innerText = total;
+                    document.getElementById('q-progress-text').innerText = percent + '%';
+                    document.getElementById('q-progress-bar').style.width = percent + '%';
+
+                    const prevBtn = document.getElementById('q-btn-prev');
+                    prevBtn.style.opacity = qStep === 0 ? '0' : '1';
+                    prevBtn.style.pointerEvents = qStep === 0 ? 'none' : 'auto';
+
+                    const nextBtn = document.getElementById('q-btn-next');
+                    const step = qActiveSteps[qStep];
+                    let isValid = true;
+                    
+                    if(step.type === 'cards' && !qAnswers[step.id]) isValid = false;
+                    if(step.type === 'form' && (!qAnswers.phone || qAnswers.phone.length < 5)) isValid = false;
+
+                    nextBtn.disabled = !isValid;
+                    nextBtn.style.opacity = isValid ? '1' : '0.6';
+                    nextBtn.innerHTML = (qStep === total - 1) ? 'Получить расчет <i class="fas fa-paper-plane" style="margin-left:10px"></i>' : 'Далее <i class="fas fa-arrow-right" style="margin-left:10px"></i>';
+                }
+
+                function quizFinish() {
+                    let type = 'Конструкция';
+                    if (qAnswers.glass_type === 'clear') type = 'Прозрачное стекло';
+                    if (qAnswers.glass_type === 'tinted') type = 'Тонированное стекло';
+                    
+                    document.getElementById('q-result-summary').innerText = type;
+                    document.getElementById('quiz-main-card').style.display = 'none';
+                    document.getElementById('q-thank-you').style.display = 'block';
+                }
+
+                document.addEventListener('DOMContentLoaded', quizInit);
+            </script>
+        </section>
         </main>
 
     <footer>
