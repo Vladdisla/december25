@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная карта — GlassStroy</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fcfcfc;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            line-height: 0;
+        }
+
+        /* Картинка из папки img */
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* SVG-слой */
+        .map-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Общие стили зон */
+        .map-zone {
+            opacity: 0;
+            stroke-width: 2;
+            transition: opacity 0.3s ease, fill 0.3s ease;
+        }
+
+        /* Класс активации */
+        .map-zone.active {
+            opacity: 1;
+        }
+
+        /* Контейнер надписей */
+        .map-labels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .label {
+            position: absolute;
+            color: #444;
+            font-size: 1.4vw;
+            font-weight: 500;
+            line-height: 1.2;
+            cursor: pointer;
+            pointer-events: auto;
+            padding-bottom: 4px;
+            border-bottom: 3px solid transparent; /* Полоска под словом */
+            transition: all 0.3s ease;
+        }
+
+        /* Индивидуальные цвета полосок под словами в обычном состоянии */
+        .label[data-target="zone-framed"] { border-color: #4CAF50; }    /* Зеленый */
+        .label[data-target="zone-frameless"] { border-color: #2196F3; } /* Синий */
+        .label[data-target="zone-floor"] { border-color: #FFEB3B; }     /* Желтый */
+        .label[data-target="zone-stairs"] { border-color: #F44336; }    /* Красный */
+
+        .label:hover {
+            transform: scale(1.05);
+        }
+
+        /* Позиционирование текста */
+        .pos-framed    { top: 30%; left: 5%; }
+        .pos-frameless { top: 60%; left: 5%; }
+        .pos-floor     { top: 30%; right: 5%; text-align: right; }
+        .pos-stairs    { top: 58%; right: 5%; text-align: right; }
+
+    </style>
+</head>
+<body>
+
+<div class="map-container">
+    <img src="img/map.png" alt="Map" class="map-image">
+
+    <!-- SVG с точными координатами зон (viewBox 1000x420) -->
+    <svg class="map-svg" viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid slice">
+        <!-- 1. Зеленая зона: Каркасная перегородка (верх слева) -->
+        <polygon id="zone-framed" class="map-zone" 
+                 points="303,115 365,103 365,215 303,235" 
+                 fill="rgba(76, 175, 80, 0.3)" stroke="#4CAF50" />
+        
+        <!-- 2. Синяя зона: Цельностеклянная перегородка (верх справа) -->
+        <polygon id="zone-frameless" class="map-zone" 
+                 points="553,88 678,118 678,255 553,212" 
+                 fill="rgba(33, 150, 243, 0.3)" stroke="#2196F3" />
+        
+        <!-- 3. Желтая зона: Стеклянный пол (центр низ) -->
+        <polygon id="zone-floor" class="map-zone" 
+                 points="456,335 638,285 715,335 533,390" 
+                 fill="rgba(255, 235, 59, 0.3)" stroke="#FFEB3B" />
+        
+        <!-- 4. Красная зона: Стеклянные ступени (лестница) -->
+        <polygon id="zone-stairs" class="map-zone" 
+                 points="435,218 530,165 545,285 450,345" 
+                 fill="rgba(244, 67, 54, 0.3)" stroke="#F44336" />
+    </svg>
+
+    <!-- Надписи -->
+    <div class="map-labels">
+        <div class="label pos-framed" data-target="zone-framed">
+            Каркасные<br>перегородки
+        </div>
+        <div class="label pos-frameless" data-target="zone-frameless">
+            Цельностеклянные<br>перегородки
+        </div>
+        <div class="label pos-floor" data-target="zone-floor">
+            Стеклянный пол
+        </div>
+        <div class="label pos-stairs" data-target="zone-stairs">
+            Стеклянные<br>ступени
+        </div>
+    </div>
+</div>
+
+<script>
+    const labels = document.querySelectorAll('.label');
+
+    labels.forEach(label => {
+        const targetId = label.getAttribute('data-target');
+        const targetZone = document.getElementById(targetId);
+
+        label.addEventListener('mouseenter', () => {
+            if (targetZone) targetZone.classList.add('active');
+        });
+
+        label.addEventListener('mouseleave', () => {
+            if (targetZone) targetZone.classList.remove('active');
+        });
+    });
+</script>
+
+</body>
+</html>
