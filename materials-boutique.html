@@ -16,15 +16,16 @@
                 extend: {
                     fontFamily: {
                         sans: ['Manrope', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'], // Шрифт для "дорогого" вида
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        // Палитра "Шоколадный Бутик"
+                        // Исправленная палитра "Шоколадный Бутик"
                         coffee: '#191716',      // Основной фон (Глубокий кофе)
                         espresso: '#231F1D',    // Фон карточек
                         latte: '#3A322E',       // Границы и линии
-                        sand: '#E6E0D8',        // Основной текст
-                        gold: '#C5A880',        // Акцент (Золото/Бронза)
+                        sand: '#E6E0D8',        // Основной текст (светло-бежевый)
+                        gold: '#C5A880',        // Акцент (Бронза)
+                        darkgold: '#8C7350',    // Темное золото для текста
                     }
                 }
             }
@@ -32,52 +33,57 @@
     </script>
 
     <style>
-        body { background-color: theme('colors.coffee'); color: theme('colors.sand'); }
+        /* Жестко задаем фон и цвет текста, чтобы не было белого экрана */
+        body { 
+            background-color: #191716; 
+            color: #E6E0D8; 
+        }
         
         /* Скроллбар */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: theme('colors.coffee'); }
-        ::-webkit-scrollbar-thumb { background: theme('colors.latte'); border-radius: 3px; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #191716; }
+        ::-webkit-scrollbar-thumb { background: #3A322E; border-radius: 4px; }
 
-        /* Элегантные карточки */
+        /* Карточки */
         .boutique-card {
-            background-color: theme('colors.espresso');
-            border: 1px solid theme('colors.latte');
+            background-color: #231F1D;
+            border: 1px solid #3A322E;
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
         .boutique-card:hover {
-            border-color: theme('colors.gold');
+            border-color: #C5A880;
             transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* Кнопки "Outline" в стиле люкс */
+        /* Кнопки */
         .btn-luxe {
-            border: 1px solid theme('colors.latte');
-            color: theme('colors.sand');
+            border: 1px solid #3A322E;
+            color: #E6E0D8;
             font-family: 'Manrope', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
+            font-weight: 600;
             padding: 1rem 2.5rem;
             transition: 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            background: transparent;
         }
         .btn-luxe:hover {
-            border-color: theme('colors.gold');
-            color: theme('colors.gold');
-            background: rgba(197, 168, 128, 0.05);
+            border-color: #C5A880;
+            color: #191716;
+            background: #C5A880;
         }
 
-        /* Заголовки с засечками */
+        /* Заголовки */
         .title-serif {
             font-family: 'Playfair Display', serif;
             line-height: 1.1;
         }
         
-        /* Теплый фильтр для фото */
+        /* Фильтры фото */
         .warm-filter img {
-            filter: sepia(10%) contrast(110%) brightness(90%);
+            filter: sepia(15%) contrast(105%) brightness(90%);
             transition: 0.7s ease;
         }
         .warm-filter:hover img {
@@ -88,21 +94,21 @@
 </head>
 <body class="antialiased selection:bg-gold selection:text-coffee">
 
-    <header class="fixed w-full z-50 bg-coffee/90 backdrop-blur-md border-b border-latte transition-all duration-300">
-        <div class="max-w-[1600px] mx-auto px-8">
+    <header class="fixed w-full z-50 bg-[#191716]/95 backdrop-blur-md border-b border-[#3A322E]">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12">
             <div class="flex justify-between items-center h-24">
                 <a href="index.html" class="flex flex-col group">
                     <span class="font-serif text-2xl tracking-widest text-white italic">Glass<span class="not-italic font-sans font-light text-gold text-sm ml-1 uppercase tracking-[0.2em]">Interior</span></span>
                 </a>
 
                 <nav class="hidden lg:flex space-x-12">
-                    <a href="#catalog" class="text-xs font-medium text-sand/60 hover:text-gold uppercase tracking-[0.15em] transition">Каталог</a>
-                    <a href="#types" class="text-xs font-medium text-sand/60 hover:text-gold uppercase tracking-[0.15em] transition">Сравнение</a>
-                    <a href="#tempering" class="text-xs font-medium text-sand/60 hover:text-gold uppercase tracking-[0.15em] transition">Технологии</a>
+                    <a href="#catalog" class="text-xs font-bold text-sand/70 hover:text-white uppercase tracking-[0.15em] transition">Каталог</a>
+                    <a href="#types" class="text-xs font-bold text-sand/70 hover:text-white uppercase tracking-[0.15em] transition">Сравнение</a>
+                    <a href="#tempering" class="text-xs font-bold text-sand/70 hover:text-white uppercase tracking-[0.15em] transition">Технологии</a>
                 </nav>
 
                 <div class="hidden md:flex items-center">
-                    <a href="contacts.html" class="text-xs font-bold text-gold border-b border-gold/50 pb-1 hover:border-gold transition uppercase tracking-widest">
+                    <a href="contacts.html" class="text-xs font-bold text-gold border-b border-gold/50 pb-1 hover:border-gold hover:text-white transition uppercase tracking-widest">
                         Рассчитать проект
                     </a>
                 </div>
@@ -110,40 +116,43 @@
         </div>
     </header>
 
-    <section class="relative min-h-screen pt-32 pb-20 px-6 flex items-center">
+    <section class="relative min-h-screen pt-32 pb-20 px-6 flex items-center bg-coffee">
         <div class="max-w-[1600px] mx-auto w-full grid lg:grid-cols-12 gap-12 relative">
             
-            <div class="absolute left-0 top-0 bottom-0 w-px bg-latte hidden lg:block"></div>
+            <div class="absolute left-0 top-0 bottom-0 w-px bg-[#3A322E] hidden lg:block"></div>
 
-            <div class="lg:col-span-5 flex flex-col justify-between relative z-10 pl-8 lg:pl-12">
+            <div class="lg:col-span-5 flex flex-col justify-center relative z-10 lg:pl-12">
                 <div>
-                    <span class="block text-gold text-xs uppercase tracking-[0.3em] mb-6">База знаний 2025</span>
-                    <h1 class="title-serif text-6xl xl:text-8xl text-white mb-8">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="h-px w-12 bg-gold"></span>
+                        <span class="text-gold text-xs uppercase tracking-[0.3em] font-bold">База знаний 2025</span>
+                    </div>
+                    <h1 class="title-serif text-6xl xl:text-8xl text-white mb-8 leading-none">
                         Искусство <br> <span class="italic text-gold">Прозрачности</span>
                     </h1>
-                    <p class="text-lg text-sand/70 font-light leading-relaxed mb-12 max-w-md">
+                    <p class="text-lg text-sand/80 font-light leading-relaxed mb-12 max-w-md">
                         Стекло — это 80% вашей перегородки. От его выбора зависит не только эстетика, но и восприятие пространства.
                     </p>
                 </div>
                 
-                <div class="flex gap-4">
-                    <a href="#catalog" class="btn-luxe bg-white text-coffee border-transparent hover:bg-gold hover:text-white">Каталог</a>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#catalog" class="btn-luxe bg-white text-coffee border-white hover:bg-gold hover:text-white hover:border-gold">Каталог</a>
                     <a href="#tempering" class="btn-luxe">Технологии</a>
                 </div>
             </div>
 
-            <div class="lg:col-span-7 relative">
-                <div class="aspect-[16/9] w-full h-full overflow-hidden relative warm-filter">
+            <div class="lg:col-span-7 relative h-[600px]">
+                <div class="w-full h-full overflow-hidden relative warm-filter">
                     <img src="img/hero-bg.jpg" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-l from-transparent to-coffee/90"></div>
+                    <div class="absolute inset-0 bg-gradient-to-l from-transparent via-coffee/20 to-coffee"></div>
                 </div>
 
-                <div class="absolute -bottom-10 left-0 lg:-left-20 bg-espresso border border-latte p-8 max-w-md shadow-2xl backdrop-blur-sm">
-                    <div class="flex items-start gap-4">
-                        <span class="text-4xl text-gold font-serif italic">?</span>
+                <div class="absolute -bottom-6 -left-4 lg:-left-20 bg-[#231F1D] border border-[#3A322E] p-8 max-w-md shadow-2xl z-20">
+                    <div class="flex items-start gap-5">
+                        <span class="text-5xl text-gold font-serif italic leading-none">?</span>
                         <div>
                             <h4 class="text-white font-serif text-xl mb-3">Физика материала</h4>
-                            <p class="text-sm text-sand/60 leading-relaxed">
+                            <p class="text-sm text-sand/70 leading-relaxed">
                                 Стекло — это аморфная жидкость. Старинные окна за 300 лет становятся толще снизу, потому что материал медленно «стекает» под гравитацией.
                             </p>
                         </div>
@@ -154,7 +163,7 @@
         </div>
     </section>
 
-    <section id="catalog" class="py-32 border-t border-latte">
+    <section id="catalog" class="py-32 border-t border-[#3A322E]">
         <div class="max-w-[1600px] mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-20">
                 <h2 class="title-serif text-5xl text-white">Наша <span class="italic text-gold">Палитра</span></h2>
@@ -164,72 +173,73 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-px bg-latte border border-latte">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-px bg-[#3A322E] border border-[#3A322E]">
                 
-                <div class="bg-coffee p-8 group hover:bg-espresso transition duration-500 flex flex-col h-[400px] justify-between relative warm-filter overflow-hidden">
-                    <div class="absolute top-6 right-6 text-xs text-sand/30 font-serif italic">01</div>
-                    <div class="h-48 overflow-hidden mb-6 opacity-80 group-hover:opacity-100 transition">
-                        <img src="img/glass/catalog-m1.jpg" class="w-full h-full object-cover">
+                <div class="bg-[#191716] p-8 group hover:bg-[#231F1D] transition duration-500 flex flex-col h-[420px] justify-between relative warm-filter overflow-hidden">
+                    <div class="absolute top-6 right-6 text-xs text-sand/20 font-serif italic text-2xl">01</div>
+                    <div class="h-56 overflow-hidden mb-6 opacity-80 group-hover:opacity-100 transition">
+                        <img src="img/glass/catalog-m1.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
                     </div>
                     <div>
-                        <h3 class="text-xl font-serif text-white mb-2 group-hover:text-gold transition">Прозрачное M1</h3>
-                        <p class="text-xs uppercase tracking-wider text-sand/50">Base Standard</p>
+                        <h3 class="text-2xl font-serif text-white mb-2 group-hover:text-gold transition">Прозрачное M1</h3>
+                        <p class="text-xs uppercase tracking-wider text-sand/50 font-bold">Base Standard</p>
                     </div>
                 </div>
 
-                <div class="bg-espresso p-8 group transition duration-500 flex flex-col h-[400px] justify-between relative warm-filter overflow-hidden border-b-4 border-gold">
-                    <div class="absolute top-6 left-6 bg-gold text-coffee text-[10px] font-bold px-2 py-1 uppercase tracking-widest">Premium Choice</div>
-                    <div class="h-48 overflow-hidden mb-6 opacity-100">
-                        <img src="img/glass/catalog-crystalvision.jpg" class="w-full h-full object-cover">
+                <div class="bg-[#231F1D] p-8 group transition duration-500 flex flex-col h-[420px] justify-between relative warm-filter overflow-hidden border-b-4 border-gold">
+                    <div class="absolute top-6 left-6 bg-gold text-[#191716] text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Premium Hit</div>
+                    <div class="h-56 overflow-hidden mb-6 opacity-100">
+                        <img src="img/glass/catalog-crystalvision.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
                     </div>
                     <div>
-                        <h3 class="text-xl font-serif text-white mb-2">Crystalvision</h3>
-                        <p class="text-xs uppercase tracking-wider text-gold">Optiwhite / Осветленное</p>
+                        <h3 class="text-2xl font-serif text-white mb-2">Crystalvision</h3>
+                        <p class="text-xs uppercase tracking-wider text-gold font-bold">Optiwhite / Осветленное</p>
                     </div>
                 </div>
 
-                <div class="bg-coffee p-8 group hover:bg-espresso transition duration-500 flex flex-col h-[400px] justify-between relative warm-filter overflow-hidden">
-                    <div class="h-48 overflow-hidden mb-6 opacity-80 group-hover:opacity-100 transition">
-                        <img src="img/glass/catalog-matelux.jpg" class="w-full h-full object-cover">
+                <div class="bg-[#191716] p-8 group hover:bg-[#231F1D] transition duration-500 flex flex-col h-[420px] justify-between relative warm-filter overflow-hidden">
+                    <div class="h-56 overflow-hidden mb-6 opacity-80 group-hover:opacity-100 transition">
+                        <img src="img/glass/catalog-matelux.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700">
                     </div>
                     <div>
-                        <h3 class="text-xl font-serif text-white mb-2 group-hover:text-gold transition">Matelux</h3>
-                        <p class="text-xs uppercase tracking-wider text-sand/50">Сатин / Приватность</p>
+                        <h3 class="text-2xl font-serif text-white mb-2 group-hover:text-gold transition">Matelux</h3>
+                        <p class="text-xs uppercase tracking-wider text-sand/50 font-bold">Сатин / Приватность</p>
                     </div>
                 </div>
 
-                <div class="bg-coffee p-8 group hover:bg-espresso transition duration-500 flex flex-col h-[400px] justify-between relative warm-filter overflow-hidden">
-                    <div class="h-48 overflow-hidden mb-6 opacity-80 group-hover:opacity-100 transition">
-                        <img src="img/glass/catalog-bronze.jpg" class="w-full h-full object-cover">
+                <div class="bg-[#191716] p-8 group hover:bg-[#231F1D] transition duration-500 flex flex-col h-[420px] justify-between relative warm-filter overflow-hidden">
+                    <div class="h-56 overflow-hidden mb-6 opacity-80 group-hover:opacity-100 transition">
+                        <img src="img/glass/catalog-bronze.jpg" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 sepia-[.4]">
                     </div>
                     <div>
-                        <h3 class="text-xl font-serif text-white mb-2 group-hover:text-gold transition">Bronze</h3>
-                        <p class="text-xs uppercase tracking-wider text-sand/50">Тонированное в массе</p>
+                        <h3 class="text-2xl font-serif text-white mb-2 group-hover:text-gold transition">Bronze</h3>
+                        <p class="text-xs uppercase tracking-wider text-sand/50 font-bold">Тонированное в массе</p>
                     </div>
                 </div>
 
-                <div class="bg-coffee p-8 group hover:bg-espresso transition duration-500 flex flex-col h-[400px] justify-between relative warm-filter overflow-hidden">
-                    <div class="h-48 overflow-hidden mb-6 opacity-80 group-hover:opacity-100 transition">
+                <div class="bg-[#191716] p-8 group hover:bg-[#231F1D] transition duration-500 flex flex-col h-[420px] justify-between relative warm-filter overflow-hidden">
+                    <div class="h-56 overflow-hidden mb-6 opacity-80 group-hover:opacity-100 transition">
                         <img src="img/glass/catalog-graphite.jpg" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-700">
                     </div>
                     <div>
-                        <h3 class="text-xl font-serif text-white mb-2 group-hover:text-gold transition">Graphite</h3>
-                        <p class="text-xs uppercase tracking-wider text-sand/50">Холодный серый</p>
+                        <h3 class="text-2xl font-serif text-white mb-2 group-hover:text-gold transition">Graphite</h3>
+                        <p class="text-xs uppercase tracking-wider text-sand/50 font-bold">Холодный серый</p>
                     </div>
                 </div>
 
-                <div class="md:col-span-2 bg-[url('img/glass/catalog-mirror.jpg')] bg-cover bg-center relative group overflow-hidden">
-                    <div class="absolute inset-0 bg-coffee/70 group-hover:bg-coffee/50 transition duration-700"></div>
+                <div class="md:col-span-2 bg-[url('img/glass/catalog-mirror.jpg')] bg-cover bg-center relative group overflow-hidden h-[420px]">
+                    <div class="absolute inset-0 bg-[#191716]/60 group-hover:bg-[#191716]/40 transition duration-700"></div>
                     <div class="relative z-10 p-10 h-full flex flex-col justify-end">
-                        <h3 class="text-3xl font-serif text-white mb-2 italic">Зеркало</h3>
-                        <p class="text-sm text-sand/80 max-w-xs">Влагостойкое серебряное полотно для расширения пространства.</p>
-                        <i class="fa-solid fa-arrow-right absolute top-8 right-8 text-white opacity-0 group-hover:opacity-100 transition -translate-x-4 group-hover:translate-x-0"></i>
+                        <h3 class="text-4xl font-serif text-white mb-3 italic">Зеркало</h3>
+                        <p class="text-sm text-sand/80 max-w-xs leading-relaxed">Влагостойкое серебряное полотно. Визуально расширяет пространство в 2 раза.</p>
+                        <i class="fa-solid fa-arrow-right absolute top-10 right-10 text-white text-2xl opacity-0 group-hover:opacity-100 transition -translate-x-4 group-hover:translate-x-0"></i>
                     </div>
                 </div>
 
-                <div class="bg-gold/10 p-8 flex flex-col justify-center items-start border-t border-latte md:border-t-0">
-                    <i class="fa-solid fa-swatchbook text-gold text-3xl mb-6"></i>
-                    <p class="text-sm text-sand/80 mb-8 leading-relaxed">
+                <div class="bg-gold/10 p-10 flex flex-col justify-center items-start border-t border-[#3A322E] md:border-t-0 h-[420px]">
+                    <i class="fa-solid fa-swatchbook text-gold text-4xl mb-8"></i>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Важно о цвете</h4>
+                    <p class="text-sm text-sand/80 mb-10 leading-relaxed">
                         Монитор искажает оттенки. Приглашаем вас в шоурум на кофе — посмотреть и потрогать образцы вживую.
                     </p>
                     <a href="contacts.html" class="text-xs font-bold uppercase tracking-widest text-white border-b border-white/30 hover:border-white transition pb-1">Контакты офиса</a>
@@ -243,13 +253,13 @@
         <div class="max-w-[1600px] mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
             
             <div class="order-2 lg:order-1">
-                <div class="relative h-[600px] border border-latte p-2">
-                    <div class="absolute inset-2 flex">
-                        <div class="w-1/2 relative group overflow-hidden border-r border-latte bg-coffee">
-                            <img src="img/glass/m1-standard.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-1000 grayscale group-hover:grayscale-0">
+                <div class="relative h-[600px] border border-[#3A322E] p-3 bg-[#1F1C1B]">
+                    <div class="absolute inset-3 flex">
+                        <div class="w-1/2 relative group overflow-hidden border-r border-[#3A322E] bg-black">
+                            <img src="img/glass/m1-standard.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-1000">
                             <div class="absolute top-0 left-0 p-8">
-                                <span class="text-xs font-bold uppercase tracking-[0.2em] text-sand/50 block mb-2">Стандарт</span>
-                                <h3 class="text-3xl font-serif text-white">M1</h3>
+                                <span class="text-xs font-bold uppercase tracking-[0.2em] text-sand/40 block mb-2">Стандарт</span>
+                                <h3 class="text-4xl font-serif text-white">M1</h3>
                             </div>
                             <div class="absolute bottom-8 left-8 max-w-[200px]">
                                 <p class="text-xs text-sand/60 leading-relaxed border-l border-green-800 pl-3">
@@ -257,11 +267,11 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="w-1/2 relative group overflow-hidden bg-coffee">
+                        <div class="w-1/2 relative group overflow-hidden bg-black">
                             <img src="img/glass/optiwhite.jpg" class="w-full h-full object-cover opacity-90 transition duration-1000">
                             <div class="absolute top-0 right-0 p-8 text-right">
                                 <span class="text-xs font-bold uppercase tracking-[0.2em] text-gold block mb-2">Premium</span>
-                                <h3 class="text-3xl font-serif text-white">Crystal</h3>
+                                <h3 class="text-4xl font-serif text-white">Crystal</h3>
                             </div>
                             <div class="absolute bottom-8 right-8 max-w-[200px] text-right">
                                 <p class="text-xs text-sand/60 leading-relaxed border-r border-blue-400/50 pr-3">
@@ -270,19 +280,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-espresso border border-latte rounded-full flex items-center justify-center z-10 text-serif italic text-gold">vs</div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#191716] border border-[#3A322E] rounded-full flex items-center justify-center z-10 text-serif italic text-gold text-xl">vs</div>
                 </div>
             </div>
 
-            <div class="order-1 lg:order-2">
-                <span class="text-gold text-xs uppercase tracking-widest mb-6 block">Материаловедение</span>
-                <h2 class="title-serif text-5xl text-white mb-8">Эффект <br>«Бутылочного стекла»</h2>
-                <div class="border-l border-latte pl-8 ml-2">
-                    <p class="text-lg text-sand/70 font-light leading-relaxed mb-8">
+            <div class="order-1 lg:order-2 pl-0 lg:pl-10">
+                <span class="text-gold text-xs uppercase tracking-widest mb-6 block font-bold">Сравнение</span>
+                <h2 class="title-serif text-5xl lg:text-6xl text-white mb-8">Эффект <br>«Бутылочного стекла»</h2>
+                <div class="border-l border-[#3A322E] pl-8 ml-2">
+                    <p class="text-lg text-sand/80 font-light leading-relaxed mb-8">
                         Вы замечали, что край обычного стекла имеет насыщенный зеленый цвет? Виной всему — <strong class="text-white font-normal">оксид железа</strong> в составе песка.
                     </p>
-                    <p class="text-lg text-sand/70 font-light leading-relaxed">
-                        Для интерьеров в светлых тонах это критично: обычное стекло работает как фильтр, превращая белую стену в мятную, а бежевую мебель — в грязновато-зеленую. Решение — <span class="text-gold border-b border-gold/30">Crystalvision</span>.
+                    <p class="text-lg text-sand/80 font-light leading-relaxed">
+                        Для интерьеров в светлых тонах это критично: обычное стекло работает как фильтр, превращая белую стену в мятную, а бежевую мебель — в грязновато-зеленую. Решение — <span class="text-gold border-b border-gold/30 pb-1">Crystalvision</span>.
                     </p>
                 </div>
             </div>
@@ -290,39 +300,39 @@
         </div>
     </section>
 
-    <section id="tinted" class="py-32 bg-espresso border-y border-latte">
-        <div class="max-w-[1400px] mx-auto px-6">
+    <section id="tinted" class="py-32 bg-[#231F1D] border-y border-[#3A322E]">
+        <div class="max-w-[1600px] mx-auto px-6">
             <div class="text-center mb-20">
                 <h2 class="title-serif text-5xl text-white mb-6">Тонированное <span class="italic text-gold">в массе</span></h2>
-                <p class="text-sand/50 max-w-2xl mx-auto font-light">
+                <p class="text-sand/60 max-w-2xl mx-auto font-light text-lg">
                     Это не пленка. Краситель добавляется в стекло на этапе плавки. <br>Такой цвет невозможно поцарапать — он вечный.
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-16">
+            <div class="grid lg:grid-cols-2 gap-12">
                 <div class="group cursor-pointer">
-                    <div class="h-[500px] overflow-hidden relative mb-8 border border-latte">
-                        <img src="img/glass/tint-bronze.jpg" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-700 sepia-[.2]">
+                    <div class="h-[500px] overflow-hidden relative mb-8 border border-[#3A322E]">
+                        <img src="img/glass/tint-bronze.jpg" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-700 sepia-[.2]">
                         <div class="absolute bottom-8 left-8">
-                            <span class="text-[100px] leading-none font-serif text-white/5 absolute -top-16 -left-4 select-none pointer-events-none">01</span>
-                            <span class="text-xs font-bold uppercase tracking-widest text-gold relative z-10">Warm Tone</span>
+                            <span class="text-[120px] leading-none font-serif text-white/5 absolute -top-20 -left-6 select-none pointer-events-none">01</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-gold relative z-10 bg-black/50 px-2 py-1">Warm Tone</span>
                         </div>
                     </div>
-                    <div class="flex justify-between items-start border-t border-latte pt-6">
+                    <div class="flex justify-between items-start border-t border-[#3A322E] pt-6">
                         <h3 class="text-3xl font-serif text-white">Planibel Bronze</h3>
                         <p class="text-sm text-sand/50 max-w-xs text-right">Теплый, "ламповый" оттенок. Идеально сочетается с деревом и кирпичом.</p>
                     </div>
                 </div>
 
                 <div class="group cursor-pointer mt-16 lg:mt-0">
-                    <div class="h-[500px] overflow-hidden relative mb-8 border border-latte">
-                        <img src="img/glass/tint-graphite.jpg" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition duration-700 grayscale">
+                    <div class="h-[500px] overflow-hidden relative mb-8 border border-[#3A322E]">
+                        <img src="img/glass/tint-graphite.jpg" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-700 grayscale">
                         <div class="absolute bottom-8 left-8">
-                            <span class="text-[100px] leading-none font-serif text-white/5 absolute -top-16 -left-4 select-none pointer-events-none">02</span>
-                            <span class="text-xs font-bold uppercase tracking-widest text-slate-400 relative z-10">Cool Tone</span>
+                            <span class="text-[120px] leading-none font-serif text-white/5 absolute -top-20 -left-6 select-none pointer-events-none">02</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-slate-400 relative z-10 bg-black/50 px-2 py-1">Cool Tone</span>
                         </div>
                     </div>
-                    <div class="flex justify-between items-start border-t border-latte pt-6">
+                    <div class="flex justify-between items-start border-t border-[#3A322E] pt-6">
                         <h3 class="text-3xl font-serif text-white">Planibel Grey</h3>
                         <p class="text-sm text-sand/50 max-w-xs text-right">Строгий холодный оттенок. Подходит для минимализма и хай-тек офисов.</p>
                     </div>
@@ -331,92 +341,96 @@
         </div>
     </section>
 
-    <section id="matte" class="py-32">
-        <div class="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-5">
-                <span class="text-gold text-xs uppercase tracking-widest mb-6 block">Фактура</span>
-                <h2 class="title-serif text-5xl text-white mb-8">Matelux <br><span class="text-sand/30 italic">Сатин</span></h2>
-                <p class="text-lg text-sand/70 font-light mb-10">
-                    Мы используем только химическое травление. В отличие от пескоструя, сатин имеет шелковистую поверхность, которая не собирает отпечатки пальцев и легко моется.
-                </p>
-                <ul class="space-y-6">
-                    <li class="flex items-center text-sand/80 font-light">
-                        <span class="w-12 h-px bg-gold mr-6"></span> Пропускает 88% света
-                    </li>
-                    <li class="flex items-center text-sand/80 font-light">
-                        <span class="w-12 h-px bg-gold mr-6"></span> Полная приватность силуэта
-                    </li>
-                    <li class="flex items-center text-sand/80 font-light">
-                        <span class="w-12 h-px bg-gold mr-6"></span> Soft-touch поверхность
-                    </li>
-                </ul>
-            </div>
-
-            <div class="lg:col-span-7 grid grid-cols-2 gap-6">
-                <div class="boutique-card h-80 p-0 relative overflow-hidden group">
-                    <img src="img/glass/matte-privacy.jpg" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-700">
-                    <div class="absolute inset-0 bg-coffee/20 group-hover:bg-transparent transition"></div>
-                    <span class="absolute bottom-6 left-6 text-white font-serif italic text-xl">Privacy</span>
-                </div>
-                <div class="boutique-card h-80 p-0 relative overflow-hidden group mt-12">
-                    <img src="img/glass/matte-texture.jpg" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-700">
-                    <div class="absolute inset-0 bg-coffee/20 group-hover:bg-transparent transition"></div>
-                    <span class="absolute bottom-6 left-6 text-white font-serif italic text-xl">Texture</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="tempering" class="py-32 bg-espresso border-t border-latte">
+    <section id="tempering" class="py-32">
         <div class="max-w-[1400px] mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-20">
+            <div class="grid lg:grid-cols-2 gap-24">
                 
                 <div>
+                    <span class="text-gold text-xs uppercase tracking-widest mb-6 block font-bold">Технологии</span>
                     <h2 class="title-serif text-5xl text-white mb-12">Закалка <span class="italic text-gold">&</span> <br>Безопасность</h2>
                     
                     <div class="space-y-12">
-                        <div class="flex items-start gap-8 border-b border-latte pb-10">
-                            <span class="text-6xl font-serif text-gold/20">01</span>
+                        <div class="flex items-start gap-8 border-b border-[#3A322E] pb-10">
+                            <span class="text-6xl font-serif text-[#3A322E]">01</span>
                             <div>
                                 <h4 class="text-white text-xl mb-2 font-serif">Прочность 5x</h4>
-                                <p class="text-sm text-sand/50 font-light">В 5-7 раз прочнее обычного стекла на удар и изгиб.</p>
+                                <p class="text-sm text-sand/60 font-light leading-relaxed">В 5-7 раз прочнее обычного стекла на удар и изгиб. Выдерживает фронтальный удар мягкого тела.</p>
                             </div>
                         </div>
-                        <div class="flex items-start gap-8 border-b border-latte pb-10">
-                            <span class="text-6xl font-serif text-gold/20">02</span>
+                        <div class="flex items-start gap-8 border-b border-[#3A322E] pb-10">
+                            <span class="text-6xl font-serif text-[#3A322E]">02</span>
                             <div>
                                 <h4 class="text-white text-xl mb-2 font-serif">Термошок 200°C</h4>
-                                <p class="text-sm text-sand/50 font-light">Выдерживает перепады температур (обычное лопается при 40°C).</p>
+                                <p class="text-sm text-sand/60 font-light leading-relaxed">Выдерживает перепады температур. Обычное стекло может лопнуть уже при разнице в 40°C.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-8 pb-10">
-                            <span class="text-6xl font-serif text-gold/20">03</span>
+                            <span class="text-6xl font-serif text-[#3A322E]">03</span>
                             <div>
                                 <h4 class="text-white text-xl mb-2 font-serif">Безопасность</h4>
-                                <p class="text-sm text-sand/50 font-light">При разрушении рассыпается в мелкую крошку без острых краев.</p>
+                                <p class="text-sm text-sand/60 font-light leading-relaxed">При разрушении рассыпается в мелкую крошку с тупыми краями. Невозможно получить глубокий порез.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative">
-                    <div class="boutique-card p-10 bg-coffee relative z-10 border-gold/30">
+                <div class="relative self-center">
+                    <div class="boutique-card p-12 bg-[#191716] relative z-10 border-gold/20 shadow-2xl">
                         <div class="flex justify-between items-start mb-8">
-                            <h3 class="text-2xl font-serif text-white">Heat Soak Test</h3>
-                            <i class="fa-solid fa-shield-cat text-gold text-2xl"></i>
+                            <div>
+                                <h3 class="text-3xl font-serif text-white mb-2">Heat Soak Test</h3>
+                                <p class="text-xs text-gold uppercase tracking-widest font-bold">Защита от взрыва</p>
+                            </div>
+                            <i class="fa-solid fa-shield-cat text-gold text-3xl"></i>
                         </div>
-                        <p class="text-sand/60 font-light leading-relaxed mb-8">
+                        <p class="text-sand/70 font-light leading-relaxed mb-8 text-sm">
                             В 1 из 1000 стекол есть частица Никель-Сульфида, которая может вызвать спонтанный взрыв. Мы используем камеру HST, чтобы «состарить» стекло и выявить брак еще на производстве.
                         </p>
-                        <div class="h-64 w-full overflow-hidden border border-latte relative">
-                            <img src="img/glass/hst-chamber.jpg" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition duration-700">
-                            <div class="absolute bottom-0 left-0 bg-gold/10 backdrop-blur px-4 py-2 text-gold text-[10px] uppercase font-bold tracking-widest border-t border-r border-gold/20">EN 14179 Standard</div>
+                        <div class="h-64 w-full overflow-hidden border border-[#3A322E] relative">
+                            <img src="img/glass/hst-chamber.jpg" class="w-full h-full object-cover opacity-70 hover:opacity-100 transition duration-700">
+                            <div class="absolute bottom-0 left-0 bg-gold/20 backdrop-blur px-4 py-2 text-gold text-[10px] uppercase font-bold tracking-widest border-t border-r border-gold/20">EN 14179 Standard</div>
                         </div>
                     </div>
                     
-                    <div class="absolute -top-10 -right-10 w-64 h-64 border border-latte -z-0 opacity-50"></div>
+                    <div class="absolute -top-6 -right-6 w-full h-full border border-[#3A322E] -z-0"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-[#231F1D] border-t border-[#3A322E]">
+        <div class="max-w-[1600px] mx-auto px-6">
+            <h2 class="title-serif text-4xl text-center text-white mb-20">Краш-тест</h2>
+            
+            <div class="grid lg:grid-cols-3 gap-px bg-[#3A322E] border border-[#3A322E]">
+                
+                <div class="bg-[#191716] p-12 text-center group hover:bg-[#231F1D] transition duration-500">
+                    <div class="w-20 h-20 mx-auto bg-red-900/10 text-red-700/70 border border-red-900/20 flex items-center justify-center rounded-full mb-8 text-2xl group-hover:text-red-500 group-hover:border-red-500 transition"><i class="fa-solid fa-xmark"></i></div>
+                    <h4 class="text-white text-2xl font-serif mb-4">Обычное</h4>
+                    <p class="text-sm text-sand/40 mb-8">Острые кинжальные осколки. Опасно для жизни.</p>
+                    <div class="h-40 overflow-hidden opacity-40 group-hover:opacity-100 transition grayscale">
+                        <img src="img/glass/break-float.jpg" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="bg-[#191716] p-12 text-center group hover:bg-[#231F1D] transition duration-500 relative">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gold"></div>
+                    <div class="w-20 h-20 mx-auto bg-green-900/10 text-green-700/70 border border-green-900/20 flex items-center justify-center rounded-full mb-8 text-2xl group-hover:text-green-500 group-hover:border-green-500 transition"><i class="fa-solid fa-check"></i></div>
+                    <h4 class="text-white text-2xl font-serif mb-4">Закаленное</h4>
+                    <p class="text-sm text-sand/40 mb-8">Мелкая безопасная крошка. Наш стандарт.</p>
+                    <div class="h-40 overflow-hidden opacity-60 group-hover:opacity-100 transition">
+                        <img src="img/glass/break-tempered.jpg" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="bg-[#191716] p-12 text-center group hover:bg-[#231F1D] transition duration-500">
+                    <div class="w-20 h-20 mx-auto bg-blue-900/10 text-blue-700/70 border border-blue-900/20 flex items-center justify-center rounded-full mb-8 text-2xl group-hover:text-blue-500 group-hover:border-blue-500 transition"><i class="fa-solid fa-layer-group"></i></div>
+                    <h4 class="text-white text-2xl font-serif mb-4">Триплекс</h4>
+                    <p class="text-sm text-sand/40 mb-8">Осколки висят на пленке. Проем закрыт.</p>
+                    <div class="h-40 overflow-hidden opacity-40 group-hover:opacity-100 transition grayscale">
+                        <img src="img/glass/break-triplex.jpg" class="w-full h-full object-cover">
+                    </div>
                 </div>
 
             </div>
@@ -424,97 +438,36 @@
     </section>
 
     <section class="py-32">
-        <div class="max-w-[1400px] mx-auto px-6">
-            
-            <div class="mb-32">
-                <h2 class="title-serif text-4xl text-center text-white mb-16">Детали имеют значение</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="group relative">
-                        <div class="h-80 overflow-hidden border border-latte mb-6">
-                            <img src="img/glass/edge-matte.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition duration-700">
-                        </div>
-                        <h4 class="text-white text-xl font-serif mb-2">Шлифовка</h4>
-                        <p class="text-xs text-sand/40 uppercase tracking-widest">Матовый край / Для профиля</p>
-                    </div>
-                    <div class="group relative">
-                        <div class="h-80 overflow-hidden border border-gold/30 mb-6">
-                            <img src="img/glass/edge-polished.jpg" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-700">
-                        </div>
-                        <h4 class="text-gold text-xl font-serif mb-2 italic">Полировка</h4>
-                        <p class="text-xs text-gold/60 uppercase tracking-widest">Еврокромка / Для открытых зон</p>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <h2 class="title-serif text-4xl text-center text-white mb-16">Краш-тест</h2>
-                <div class="grid lg:grid-cols-3 gap-px bg-latte border border-latte">
-                    
-                    <div class="bg-coffee p-10 text-center group hover:bg-espresso transition">
-                        <div class="w-16 h-16 mx-auto bg-red-900/20 text-red-500 flex items-center justify-center rounded-full mb-6 text-xl"><i class="fa-solid fa-xmark"></i></div>
-                        <h4 class="text-white text-lg font-serif mb-2">Обычное</h4>
-                        <p class="text-sm text-sand/40 mb-6">Острые кинжальные осколки.</p>
-                        <div class="h-32 overflow-hidden opacity-40 group-hover:opacity-100 transition grayscale">
-                            <img src="img/glass/break-float.jpg" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-
-                    <div class="bg-coffee p-10 text-center group hover:bg-espresso transition relative">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gold"></div>
-                        <div class="w-16 h-16 mx-auto bg-green-900/20 text-green-500 flex items-center justify-center rounded-full mb-6 text-xl"><i class="fa-solid fa-check"></i></div>
-                        <h4 class="text-white text-lg font-serif mb-2">Закаленное</h4>
-                        <p class="text-sm text-sand/40 mb-6">Мелкая безопасная крошка.</p>
-                        <div class="h-32 overflow-hidden opacity-60 group-hover:opacity-100 transition">
-                            <img src="img/glass/break-tempered.jpg" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-
-                    <div class="bg-coffee p-10 text-center group hover:bg-espresso transition">
-                        <div class="w-16 h-16 mx-auto bg-blue-900/20 text-blue-500 flex items-center justify-center rounded-full mb-6 text-xl"><i class="fa-solid fa-layer-group"></i></div>
-                        <h4 class="text-white text-lg font-serif mb-2">Триплекс</h4>
-                        <p class="text-sm text-sand/40 mb-6">Осколки висят на пленке.</p>
-                        <div class="h-32 overflow-hidden opacity-40 group-hover:opacity-100 transition grayscale">
-                            <img src="img/glass/break-triplex.jpg" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="py-32 bg-espresso border-t border-latte">
         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-xs font-bold text-sand/30 uppercase tracking-[0.3em] text-center mb-12">F.A.Q.</h2>
+            <h2 class="text-xs font-bold text-sand/30 uppercase tracking-[0.3em] text-center mb-16">F.A.Q.</h2>
             
-            <div class="space-y-6">
+            <div class="space-y-8">
                 <details class="group cursor-pointer">
-                    <summary class="flex justify-between items-center text-white font-serif text-xl border-b border-latte pb-6 group-hover:text-gold transition">
+                    <summary class="flex justify-between items-center text-white font-serif text-2xl border-b border-[#3A322E] pb-6 group-hover:text-gold transition">
                         Как отличить закаленное стекло?
-                        <span class="text-sm text-latte group-open:rotate-45 group-open:text-gold transition duration-300"><i class="fa-solid fa-plus"></i></span>
+                        <span class="text-sm text-[#3A322E] group-open:rotate-45 group-open:text-gold transition duration-300"><i class="fa-solid fa-plus"></i></span>
                     </summary>
-                    <div class="pt-6 pb-2 text-sand/60 font-light leading-relaxed">
+                    <div class="pt-6 pb-2 text-sand/70 font-light leading-relaxed text-lg">
                         В углу каждого листа обязательно стоит штамп (клеймо) "Tempered" или "ESG". Также, если посмотреть на стекло через поляризационные очки, будут видны характерные пятна (анизотропия).
                     </div>
                 </details>
 
                 <details class="group cursor-pointer">
-                    <summary class="flex justify-between items-center text-white font-serif text-xl border-b border-latte pb-6 group-hover:text-gold transition">
+                    <summary class="flex justify-between items-center text-white font-serif text-2xl border-b border-[#3A322E] pb-6 group-hover:text-gold transition">
                         Вес квадратного метра?
-                        <span class="text-sm text-latte group-open:rotate-45 group-open:text-gold transition duration-300"><i class="fa-solid fa-plus"></i></span>
+                        <span class="text-sm text-[#3A322E] group-open:rotate-45 group-open:text-gold transition duration-300"><i class="fa-solid fa-plus"></i></span>
                     </summary>
-                    <div class="pt-6 pb-2 text-sand/60 font-light leading-relaxed">
+                    <div class="pt-6 pb-2 text-sand/70 font-light leading-relaxed text-lg">
                         Формула проста: 2.5 кг * толщина (мм). То есть 1 м² стекла 10 мм весит ровно 25 кг. Это важно учитывать при расчете нагрузок на перекрытия.
                     </div>
                 </details>
 
                 <details class="group cursor-pointer">
-                    <summary class="flex justify-between items-center text-white font-serif text-xl border-b border-latte pb-6 group-hover:text-gold transition">
+                    <summary class="flex justify-between items-center text-white font-serif text-2xl border-b border-[#3A322E] pb-6 group-hover:text-gold transition">
                         Что такое еврокромка?
-                        <span class="text-sm text-latte group-open:rotate-45 group-open:text-gold transition duration-300"><i class="fa-solid fa-plus"></i></span>
+                        <span class="text-sm text-[#3A322E] group-open:rotate-45 group-open:text-gold transition duration-300"><i class="fa-solid fa-plus"></i></span>
                     </summary>
-                    <div class="pt-6 pb-2 text-sand/60 font-light leading-relaxed">
+                    <div class="pt-6 pb-2 text-sand/70 font-light leading-relaxed text-lg">
                         Это полированная трапециевидная обработка торца. Она не только красивая (прозрачная), но и самая безопасная, так как снимает концентраторы напряжения с краев.
                     </div>
                 </details>
@@ -522,10 +475,10 @@
         </div>
     </section>
 
-    <footer class="bg-coffee py-20 border-t border-latte text-center">
+    <footer class="bg-[#191716] py-20 border-t border-[#3A322E] text-center">
         <div class="max-w-[1600px] mx-auto px-6">
             <span class="font-serif text-3xl tracking-widest text-white italic block mb-8">Glass<span class="not-italic font-sans font-light text-gold text-lg ml-1 uppercase tracking-[0.2em]">Interior</span></span>
-            <p class="text-xs text-sand/20 uppercase tracking-widest">&copy; 2025 Все права защищены</p>
+            <p class="text-xs text-sand/30 uppercase tracking-widest font-bold">&copy; 2025 Все права защищены</p>
         </div>
     </footer>
 
